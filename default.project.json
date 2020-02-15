@@ -1,0 +1,48 @@
+{
+	"name": "roblox-ts-game",
+	"tree": {
+		"$className": "DataModel",
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"Aero": {
+				"$path": "out/internal/server"
+			}
+		},
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"rbxts_include": {
+				"$path": "include",
+				"node_modules": {
+					"$path": "node_modules"
+				}
+			},
+			"Aero": {
+				"$className": "Folder",
+				"Shared": {
+					"$path": "out/Shared",
+					"AeroInternal": {
+						"$path": "out/internal/Aero"
+					}
+				}
+			}
+		},
+		"ServerStorage": {
+			"$className": "ServerStorage",
+			"Aero": {
+				"$path": "out/Server"
+			}
+		},
+		"StarterPlayer": {
+			"$className": "StarterPlayer",
+			"StarterPlayerScripts": {
+				"$className": "StarterPlayerScripts",
+				"Aero": {
+					"$path": "out/Client",
+					"Internal": {
+						"$path": "out/internal/client"
+					}
+				}
+			}
+		}
+	}
+}
