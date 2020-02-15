@@ -1,4 +1,4 @@
-import { test } from "Server/Services/test";
+import test = require("Server/Services/test");
 
 declare global {
 	// put all shared stuff here
@@ -9,7 +9,7 @@ declare global {
 	// put all server stuff here
 	interface server {
 		services: {
-
+			test: test
 		},
 
 
