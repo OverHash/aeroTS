@@ -1,15 +1,31 @@
 {
   "name": "aeroTS",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.3.0",
+  "description": "roblox-ts typings for AeroGameFramework",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+	  "type": "git",
+	  "url": "https://github.com/OverHash/aeroTS"
+  },
+  "keywords": [
+	  "aeroTS",
+	  "aero-game-framework",
+	  "agf",
+	  "roblox-ts"
+  ],
+  "author": "OverHash",
   "license": "ISC",
+  "bugs": {
+	  "url": "https://github.com/OverHash/aeroTS/issues"
+  },
+  "homepage": "https://github.com/OverHash/aeroTS/README.md",
   "devDependencies": {
     "@rbxts/types": "^1.0.336"
+  },
+  "publishConfig": {
+	  "access": "public"
   }
 }
