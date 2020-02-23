@@ -12,6 +12,8 @@ Features:
 ## Installation
 ```npm i @rbxts/aerots```
 
+Create `src/GlobalRegistry.d.ts` that follows the [template file!](https://github.com/OverHash/aeroTS/blob/master/src/GlobalRegistry.d.ts)
+
 ## Usage
 - AeroGameFramework comes with a lot of preinstalled files. These can be removed
 - Create a file under your desired location, and add it to `src/GlobalRegistry.d.ts` in the defined format
@@ -22,4 +24,4 @@ I suggest you hide the folder `src/internal`, in Visual Studio Code this can be 
 - Opening settings with File > Preferences > Settings
 - Choosing User/Workspace depending on global/local file exclusion
 - Searching for `Files: Exclude`
-- Adding `**/src/internal` and `**/.vscode` to the patterns
+- Adding `**/src/internal` and `**/.vscode` to the patterns to hide
