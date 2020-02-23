@@ -1,11 +1,11 @@
 import Aero = require("internal/Aero/Aero");
 
-export = class test extends Aero.Controller {
-	constructor() {
-		super();
+export = class test extends Aero.Service {
+	Start() {
+		print('Started from test.ts!');
 	}
 
-	Start() {
-		print('started!');
+	Init() {
+		print('Initiated from test.ts!');
 	}
 }

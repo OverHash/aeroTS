@@ -7,24 +7,6 @@
 -- @license BSD
 -- July 15, 2018
 
---[[
-	
-	local base64 = Base64.new()
-	
-	Example:
-	
-	local myEncodedWord = base64:Encode("Hello")
-	
-	print(myEncodedWord)
-	
-	-- outputs: SGVsbG8=
-	
-	print(base64:Decode(myEncodedWord))
-	
-	-- outputs: Hello
-
---]]
-
 local Alphabet = {}
 local Indexes = {}
 
