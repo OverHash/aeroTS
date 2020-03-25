@@ -10,9 +10,7 @@ Features:
 - Lazy loaded modules. No more cyclic dependencies!
 
 ## Installation
-```npm i @rbxts/aerots```
-
-Create `src/GlobalRegistry.d.ts` that follows the [template file!](https://github.com/OverHash/aeroTS/blob/master/src/GlobalRegistry.d.ts)
+It is easiest to clone this repository and copy relevant files across from there
 
 ## Usage
 - AeroGameFramework comes with a lot of preinstalled files. These can be removed
