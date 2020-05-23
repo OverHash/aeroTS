@@ -1,4 +1,5 @@
 import Date from "Shared/Date";
+import Maid from "Shared/Maid";
 import Event from "Shared/Event";
 import Thread from "Shared/Thread";
 import Base64 from "Shared/Base64";
@@ -22,6 +23,7 @@ declare global {
 		// module: moduleDefinition
 		// e.g. module2: module2;
 		Date: typeof Date;
+		Maid: typeof Maid;
 		Event: typeof Event;
 		Thread: typeof Thread;
 		Base64: typeof Base64;
