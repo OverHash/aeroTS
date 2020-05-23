@@ -486,7 +486,10 @@ function Data:Get(key, defaultVal)
 	-- Load and return value since it was not in the cache:
 	return self:_load(key):Then(function(value)
 		if (value == nil and defaultVal ~= nil) then
-			value = (typeof(defaultVal) ~= "table" and defaultVal or tableUtil.Copy(defaultVal))
+			value = defaultVal
+			if (typeof(defaultVal) == "table") then
+				value = tableUtil.Copy(defaultVal)
+			end
 			return self:Set(key, value):Then(function()
 				return value
 			end)
@@ -656,7 +659,7 @@ end
 
 function Data:OnClose(handler)
 	assert(type(handler) == "function", "OnClose handler must be a function")
-	for _,h in pairs(self._onCloseHandlers) do
+	for _,h in ipairs(self._onCloseHandlers) do
 		if (h == handler) then
 			error("Handler already binded")
 		end
@@ -699,7 +702,7 @@ function Data:Start()
 		if (numBinded == 0) then return end
 		local bindable = Instance.new("BindableEvent")
 		local numCompleted = 0
-		for _,func in pairs(self._onCloseHandlers) do
+		for _,func in ipairs(self._onCloseHandlers) do
 			HeartbeatSpawn(function()
 				local success, err = pcall(func)
 				if (not success) then
