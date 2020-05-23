@@ -15,6 +15,9 @@
 	listeners:DisconnectEvents()
 	listeners:DisconnectRenderSteps()
 	listeners:DisconnectActions()
+
+	listeners:Destroy()
+		> Alias for DisconnectAll
 	
 --]]
 
@@ -61,7 +64,7 @@ end
 
 
 function ListenerList:DisconnectEvents()
-	for _,l in pairs(self._listeners) do
+	for _,l in ipairs(self._listeners) do
 		if (l.Connected) then
 			l:Disconnect()
 		end
@@ -72,7 +75,7 @@ end
 
 function ListenerList:DisconnectRenderSteps()
 	local runService = game:GetService("RunService")
-	for _,n in pairs(self._renderStepNames) do
+	for _,n in ipairs(self._renderStepNames) do
 		runService:UnbindFromRenderStep(n)
 	end
 	self._renderStepNames = {}
@@ -81,7 +84,7 @@ end
 
 function ListenerList:DisconnectActions()
 	local ctxService = game:GetService("ContextActionService")
-	for _,n in pairs(self._actionNames) do
+	for _,n in ipairs(self._actionNames) do
 		ctxService:UnbindAction(n)
 	end
 	self._actionNames = {}
@@ -94,6 +97,9 @@ function ListenerList:DisconnectAll()
 	self:DisconnectRenderSteps()
 	self:DisconnectActions()
 end
+
+
+ListenerList.Destroy = ListenerList.DisconnectAll
 
 
 return ListenerList
