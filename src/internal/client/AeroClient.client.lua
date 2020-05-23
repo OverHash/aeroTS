@@ -12,6 +12,8 @@ local Aero = {
 	Player = game:GetService("Players").LocalPlayer;
 }
 
+local NO_CACHE = {}
+
 local mt = {__index = Aero}
 
 local controllersFolder = script.Parent.Parent:WaitForChild("Controllers")
@@ -21,6 +23,8 @@ local sharedFolder = game:GetService("ReplicatedStorage"):WaitForChild("Aero"):W
 local modulesAwaitingStart = {}
 
 local SpawnNow = require(sharedFolder:WaitForChild("Thread"):Clone()).SpawnNow
+local Promise = require(sharedFolder:WaitForChild("Promise"):Clone())
+
 
 local function PreventEventRegister()
 	error("Cannot register event after Init method")
@@ -69,7 +73,7 @@ end
 local function LoadService(serviceFolder, servicesTbl)
 	local service = {}
 	servicesTbl[serviceFolder.Name] = service
-	for _,v in pairs(serviceFolder:GetChildren()) do
+	for _,v in ipairs(serviceFolder:GetChildren()) do
 		if (v:IsA("RemoteEvent")) then
 			local event = Aero.Shared.Event.new()
 			local fireEvent = event.Fire
@@ -81,8 +85,37 @@ local function LoadService(serviceFolder, servicesTbl)
 			end)
 			service[v.Name] = event
 		elseif (v:IsA("RemoteFunction")) then
-			service[v.Name] = function(self, ...)
-				return v:InvokeServer(...)
+			local cacheTTL = v:FindFirstChild("Cache")
+			if (cacheTTL) then
+				cacheTTL = cacheTTL.Value
+				local methodName = v.Name
+				local cache = NO_CACHE
+				local lastCacheTime = 0
+				local fetchingPromise
+				service[methodName] = function(self, ...)
+					local now = tick()
+					if (fetchingPromise) then
+						local _,c = fetchingPromise:Await()
+						return table.unpack(c)
+					elseif (cache == NO_CACHE or (cacheTTL > 0 and (now - lastCacheTime) > cacheTTL)) then
+						lastCacheTime = now
+						local args = table.pack(...)
+						fetchingPromise = Promise.Async(function(resolve, _reject)
+							resolve(table.pack(v:InvokeServer(table.unpack(args))))
+						end)
+						local success, _cache = fetchingPromise:Await()
+						if (success) then
+							cache = _cache
+						end
+						fetchingPromise = nil
+						return table.unpack(_cache)
+					end
+					return table.unpack(cache)
+				end
+			else
+				service[v.Name] = function(self, ...)
+					return v:InvokeServer(...)
+				end
 			end
 		end
 	end
@@ -93,7 +126,7 @@ end
 local function LoadServices()
 	local remoteServices = game:GetService("ReplicatedStorage"):WaitForChild("Aero"):WaitForChild("AeroRemoteServices")
 	local function LoadAllServices(folder, servicesTbl)
-		for _,serviceFolder in pairs(folder:GetChildren()) do
+		for _,serviceFolder in ipairs(folder:GetChildren()) do
 			if (serviceFolder:IsA("Folder")) then
 				local service = LoadService(serviceFolder, servicesTbl)
 				if (next(service) == nil) then
@@ -115,7 +148,11 @@ local function LazyLoadSetup(tbl, folder)
 				local obj = require(child)
 				rawset(t, i, obj)
 				if (type(obj) == "table") then
-					Aero:WrapModule(obj)
+					-- only wrap module if it's actually a table, and not a table disguised as a function
+					local objMetatable = getmetatable(obj)
+					if (not (objMetatable and objMetatable.__call)) then
+						Aero:WrapModule(obj)
+					end
 				end
 				return obj
 			elseif (child:IsA("Folder")) then
@@ -157,7 +194,7 @@ local function Init()
 	
 	-- Load controllers:
 	local function LoadAllControllers(parent, controllersTbl)
-		for _,child in pairs(parent:GetChildren()) do
+		for _,child in ipairs(parent:GetChildren()) do
 			if (child:IsA("ModuleScript")) then
 				LoadController(child, controllersTbl)
 			elseif (child:IsA("Folder")) then
