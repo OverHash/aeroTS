@@ -8,4 +8,8 @@ export = class exampleModule extends Aero.SharedModule {
 	Init() {
 		print('Initiated from exampleModule.ts!');
 	}
+
+	foo(str: string) {
+		print(str);
+	}
 }
