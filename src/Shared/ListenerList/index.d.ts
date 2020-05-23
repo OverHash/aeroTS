@@ -137,6 +137,11 @@ declare class ListenerList {
 	 * Only unbind any bound actions.
 	 */
 	DisconnectActions(): void;
+
+	/**
+	 * Alias for `DisconnectAll`.
+	 */
+	Destroy(): void;
 }
 
 export = ListenerList;
