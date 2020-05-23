@@ -7,21 +7,30 @@
 -- @license BSD
 -- July 15, 2018
 
+--[[
+	
+	local base64 = Base64.new()
+	
+	Example:
+	
+	local myEncodedWord = base64:Encode("Hello")
+	
+	print(myEncodedWord)
+	
+	-- outputs: SGVsbG8=
+	
+	print(base64:Decode(myEncodedWord))
+	
+	-- outputs: Hello
+
+--]]
+
 local Alphabet = {}
 local Indexes = {}
 
--- A-Z
-for Index = 65, 90 do
-	table.insert(Alphabet, Index)
-end
--- a-z
-for Index = 97, 122 do
-	table.insert(Alphabet, Index)
-end
--- 0-9
-for Index = 48, 57 do
-	table.insert(Alphabet, Index)
-end
+for Index = 65, 90 do table.insert(Alphabet, Index) end -- A-Z
+for Index = 97, 122 do table.insert(Alphabet, Index) end -- a-z
+for Index = 48, 57 do table.insert(Alphabet, Index) end -- 0-9
 
 table.insert(Alphabet, 43) -- +
 table.insert(Alphabet, 47) -- /
@@ -103,14 +112,8 @@ function Base64:Decode(Input)
 
 		Length = Length + 1
 		Output[Length] = A
-		if C3 ~= 61 then
-			Length = Length + 1
-			Output[Length] = B
-		end
-		if C4 ~= 61 then
-			Length = Length + 1
-			Output[Length] = C
-		end
+		if C3 ~= 61 then Length = Length + 1 Output[Length] = B end
+		if C4 ~= 61 then Length = Length + 1 Output[Length] = C end
 	end
 
 	local NewOutput = {}
