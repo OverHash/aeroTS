@@ -5,6 +5,7 @@ import Thread from "Shared/Thread";
 import Base64 from "Shared/Base64";
 import TableUtil from "Shared/TableUtil";
 import NumberUtil from "Shared/NumberUtil";
+import VectorUtil from "Shared/VectorUtil";
 import ListenerList from "Shared/ListenerList";
 
 // import modules here, e.g.
@@ -30,6 +31,7 @@ declare global {
 		Base64: typeof Base64;
 		TableUtil: typeof TableUtil;
 		NumberUtil: typeof NumberUtil;
+		VectorUtil: typeof VectorUtil;
 		ListenerList: typeof ListenerList;
 	}
 
