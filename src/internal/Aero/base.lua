@@ -1,0 +1,3 @@
+return {
+	constructor = function() end
+}

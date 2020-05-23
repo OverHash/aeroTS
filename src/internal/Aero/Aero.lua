@@ -1,11 +1,11 @@
-local Service = require(script.Parent.Service)
-local Controller = require(script.Parent.Controller)
-local Module = require(script.Parent.Module)
+local base = require(script.Parent.base)
 
 local Aero = {
-    Service = Service,
-	Controller = Controller,
-	Module = Module
+    Service = base,
+	Controller = base,
+	ServerModule = base,
+	ClientModule = base,
+	SharedModule = base
 }
 
 return Aero
