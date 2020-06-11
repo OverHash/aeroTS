@@ -6,10 +6,13 @@ declare namespace Aero {
 		Init(): void;
 
 		Services: server["services"];
+		static Services: server["services"];
 
 		Modules: server['modules'];
+		static Modules: server['modules'];
 
 		Shared: shared;
+		static Shared: shared;
 	}
 
 	abstract class Controller {
@@ -17,15 +20,14 @@ declare namespace Aero {
 
 		Init(): void;
 
-		Start(): void;
-
-		Init(): void;
-
 		Controllers: client['controllers'];
+		static Controllers: client['controllers'];
 
 		Modules: client['modules'];
+		static Modules: client['modules'];
 
 		Shared: shared;
+		static Shared: shared;
 	}
 
 	abstract class ServerModule {
@@ -34,10 +36,13 @@ declare namespace Aero {
 		Init?(): void;
 
 		Services: server['services'];
+		static Services: server['services'];
 
 		Modules: server['modules'];
+		static Modules: server['modules'];
 
 		Shared: shared;
+		static Shared: shared;
 	}
 
 	abstract class ClientModule {
@@ -46,10 +51,13 @@ declare namespace Aero {
 		Init?(): void;
 
 		Controllers: client['controllers'];
+		static Controllers: client['controllers'];
 
 		Modules: client['modules'];
+		static Modules: client['modules'];
 
 		Shared: shared;
+		static Shared: shared;
 	}
 
 	abstract class SharedModule {
@@ -58,5 +66,6 @@ declare namespace Aero {
 		Init?(): void;
 
 		Shared: shared;
+		static Shared: shared;
 	}
 }
