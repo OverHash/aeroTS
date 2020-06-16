@@ -1,9 +1,9 @@
 export = Aero
 declare namespace Aero {
 	abstract class Service {
-		Start(): void;
+		static Start(): void;
 
-		Init(): void;
+		static Init(): void;
 
 		Services: server["services"];
 		static Services: server["services"];
@@ -16,9 +16,9 @@ declare namespace Aero {
 	}
 
 	abstract class Controller {
-		Start(): void;
+		static Start(): void;
 
-		Init(): void;
+		static Init(): void;
 
 		Controllers: client['controllers'];
 		static Controllers: client['controllers'];
@@ -31,9 +31,9 @@ declare namespace Aero {
 	}
 
 	abstract class ServerModule {
-		Start?(): void;
+		static Start?(): void;
 
-		Init?(): void;
+		static Init?(): void;
 
 		Services: server['services'];
 		static Services: server['services'];
@@ -46,9 +46,9 @@ declare namespace Aero {
 	}
 
 	abstract class ClientModule {
-		Start?(): void;
+		static Start?(): void;
 
-		Init?(): void;
+		static Init?(): void;
 
 		Controllers: client['controllers'];
 		static Controllers: client['controllers'];
@@ -61,9 +61,9 @@ declare namespace Aero {
 	}
 
 	abstract class SharedModule {
-		Start?(): void;
+		static Start?(): void;
 
-		Init?(): void;
+		static Init?(): void;
 
 		Shared: shared;
 		static Shared: shared;
