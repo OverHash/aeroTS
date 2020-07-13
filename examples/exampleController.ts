@@ -1,15 +1,15 @@
-import Aero = require("internal/Aero/Aero");
+import Aero from "internal/Aero/Aero";
 
 export = class exampleController extends Aero.Controller {
-	Start() {
+	static Start() {
 		print('exampleController.ts started!');
 	}
 
-	Init() {
+	static Init() {
 		print('Initiated from exampleController.ts!');
 	}
 
-	foo(str: string) {
+	static foo(str: string) {
 		print('Someone sent a message!\n' + str);
 	}
 }

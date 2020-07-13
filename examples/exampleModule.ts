@@ -1,7 +1,7 @@
-import Aero = require("internal/Aero/Aero");
+import Aero from "internal/Aero/Aero";
 
 export = class exampleModule extends Aero.SharedModule {
-	Start() {
+	static Start() {
 		print('exampleModule.ts started!');
 	}
 

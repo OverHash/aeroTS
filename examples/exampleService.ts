@@ -1,14 +1,14 @@
-import Aero = require("internal/Aero/Aero");
+import Aero from "internal/Aero/Aero";
 
 export = class exampleService extends Aero.Service {
-	Start() {
+	static Start() {
 		print('exampleService.ts started!');
 
 		// access exampleModule
 		this.Modules.exampleModule.foo('hello!');
 	}
 
-	Init() {
+	static Init() {
 		print('Initiated from exampleService.ts!');
 	}
 }
