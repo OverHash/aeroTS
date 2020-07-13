@@ -1,71 +1,52 @@
-export = Aero
 declare namespace Aero {
 	abstract class Service {
-		static Start(): void;
+		protected Services: server['services'];
+		protected static Services: server['services'];
 
-		static Init(): void;
+		protected Modules: server['modules'];
+		protected static Modules: server['modules'];
 
-		Services: server["services"];
-		static Services: server["services"];
-
-		Modules: server['modules'];
-		static Modules: server['modules'];
-
-		Shared: shared;
-		static Shared: shared;
+		protected Shared: shared;
+		protected static Shared: shared;
 	}
 
 	abstract class Controller {
-		static Start(): void;
+		protected Controllers: client['controllers'];
+		protected static Controllers: client['controllers'];
 
-		static Init(): void;
+		protected Modules: client['modules'];
+		protected static Modules: client['modules'];
 
-		Controllers: client['controllers'];
-		static Controllers: client['controllers'];
-
-		Modules: client['modules'];
-		static Modules: client['modules'];
-
-		Shared: shared;
-		static Shared: shared;
+		protected Shared: shared;
+		protected static Shared: shared;
 	}
 
 	abstract class ServerModule {
-		static Start?(): void;
+		protected Services: server['services'];
+		protected static Services: server['services'];
 
-		static Init?(): void;
+		protected Modules: server['modules'];
+		protected static Modules: server['modules'];
 
-		Services: server['services'];
-		static Services: server['services'];
-
-		Modules: server['modules'];
-		static Modules: server['modules'];
-
-		Shared: shared;
-		static Shared: shared;
+		protected Shared: shared;
+		protected static Shared: shared;
 	}
 
 	abstract class ClientModule {
-		static Start?(): void;
+		protected Controllers: client['controllers'];
+		protected static Controllers: client['controllers'];
 
-		static Init?(): void;
+		protected Modules: client['modules'];
+		protected static Modules: client['modules'];
 
-		Controllers: client['controllers'];
-		static Controllers: client['controllers'];
-
-		Modules: client['modules'];
-		static Modules: client['modules'];
-
-		Shared: shared;
-		static Shared: shared;
+		protected Shared: shared;
+		protected static Shared: shared;
 	}
 
 	abstract class SharedModule {
-		static Start?(): void;
-
-		static Init?(): void;
-
-		Shared: shared;
-		static Shared: shared;
+		protected Shared: shared;
+		protected static Shared: shared;
 	}
 }
+
+export = Aero;
