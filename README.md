@@ -9,7 +9,8 @@ Features:
 
 ## Installation
 It is easiest to clone this repository and copy relevant files across from there
-The most relevant files is the src/ folder. Copy this folder over and you can edit it to your liking!
+- The most relevant files is the src/ folder. Copy this folder over and you can edit it to your liking!
+- `default.project.json` should also be copied over, and replace your old `default.project.json`
 
 ## Usage
 - AeroGameFramework comes with a lot of preinstalled files. These can be removed
