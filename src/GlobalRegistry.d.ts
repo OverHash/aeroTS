@@ -1,11 +1,11 @@
-import Date from "Shared/Date";
-import Maid from "Shared/Maid";
-import Event from "Shared/Event";
-import Thread from "Shared/Thread";
-import Base64 from "Shared/Base64";
-import TableUtil from "Shared/TableUtil";
-import NumberUtil from "Shared/NumberUtil";
-import VectorUtil from "Shared/VectorUtil";
+import Date from 'Shared/Date';
+import Maid from 'Shared/Maid';
+import Event from 'Shared/Event';
+import Thread from 'Shared/Thread';
+import Base64 from 'Shared/Base64';
+import TableUtil from 'Shared/TableUtil';
+import NumberUtil from 'Shared/NumberUtil';
+import VectorUtil from 'Shared/VectorUtil';
 
 // import modules here, e.g.
 
@@ -16,7 +16,6 @@ import VectorUtil from "Shared/VectorUtil";
 
 // import myController = require('Client/Controllers/myController');
 // import myClientModule = require('Client/Modules/myClientModule');
-
 
 declare global {
 	// put all shared stuff here
@@ -38,13 +37,12 @@ declare global {
 		services: {
 			// service: serviceImport
 			// e.g. myService: typeof myService;
-		},
-
+		};
 
 		modules: {
 			// module: moduleImport
 			// e.g. myServerModule: typeof myServerModule
-		}
+		};
 	}
 
 	// put all client stuff here
@@ -52,11 +50,11 @@ declare global {
 		controllers: {
 			// controller: controllerImport
 			// e.g. myController: typeof myController
-		},
+		};
 
 		modules: {
 			// module: moduleImport
 			// e.g. myClientModule: typeof myClientModule
-		}
+		};
 	}
 }
