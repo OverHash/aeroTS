@@ -6,6 +6,9 @@
 			"$className": "ServerScriptService",
 			"Aero": {
 				"$path": "out/internal/server"
+			},
+			"TS": {
+				"$path": "out/server"
 			}
 		},
 		"ReplicatedStorage": {
@@ -24,6 +27,9 @@
 						"$path": "out/internal/Aero"
 					}
 				}
+			},
+			"TS": {
+				"$path": "out/shared"
 			}
 		},
 		"ServerStorage": {
@@ -41,6 +47,9 @@
 					"Internal": {
 						"$path": "out/internal/client"
 					}
+				},
+				"TS": {
+					"$path": "out/client",
 				}
 			}
 		}
