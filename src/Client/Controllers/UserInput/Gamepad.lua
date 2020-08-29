@@ -36,6 +36,8 @@ local userInput = game:GetService("UserInputService")
 local hapticService = game:GetService("HapticService")
 local abs = math.abs
 
+local InverseLerp
+
 
 function Gamepad.new(gamepad)
 	
@@ -49,11 +51,11 @@ function Gamepad.new(gamepad)
 		_isConnected = false;
 	}, Gamepad)
 	
-	self.ButtonDown   = self.Shared.Event.new()
-	self.ButtonUp     = self.Shared.Event.new()
-	self.Changed      = self.Shared.Event.new()
-	self.Connected    = self.Shared.Event.new()
-	self.Disconnected = self.Shared.Event.new()
+	self.ButtonDown   = self.Shared.Signal.new()
+	self.ButtonUp     = self.Shared.Signal.new()
+	self.Changed      = self.Shared.Signal.new()
+	self.Connected    = self.Shared.Signal.new()
+	self.Disconnected = self.Shared.Signal.new()
 	
 	self._listeners = self.Shared.ListenerList.new()
 	
@@ -81,7 +83,7 @@ function Gamepad.new(gamepad)
 	end)
 	
 	-- Map InputObject states to corresponding KeyCodes:
-	for _,input in pairs(userInput:GetGamepadState(gamepad)) do
+	for _,input in ipairs(userInput:GetGamepadState(gamepad)) do
 		self._state[input.KeyCode] = input
 	end
 	
@@ -103,14 +105,14 @@ function Gamepad:ConnectAll()
 	end)
 	
 	-- Input Ended:
-	self._listeners:Connect(userInput.InputEnded, function(input, processed)
+	self._listeners:Connect(userInput.InputEnded, function(input, _processed)
 		if (input.UserInputType == self._gamepadInput) then
 			self.ButtonUp:Fire(input.KeyCode)
 		end
 	end)
 	
 	-- Input Changed:
-	self._listeners:Connect(userInput.InputChanged, function(input, processed)
+	self._listeners:Connect(userInput.InputChanged, function(input, _processed)
 		if (input.UserInputType == self._gamepadInput) then
 			self.Changed:Fire(input.KeyCode, input)
 		end
@@ -165,7 +167,7 @@ end
 
 
 function Gamepad:StopAllMotors()
-	for _,motor in pairs(Enum.VibrationMotor:GetEnumItems()) do
+	for _,motor in ipairs(Enum.VibrationMotor:GetEnumItems()) do
 		self:StopMotor(motor)
 	end
 end
@@ -174,10 +176,8 @@ end
 function Gamepad:ApplyDeadzone(value, deadzoneThreshold)
 	if (abs(value) < deadzoneThreshold) then
 		return 0
-	elseif (value > 0) then
-		return ((value - deadzoneThreshold) / (1 - deadzoneThreshold))
 	else
-		return ((value + deadzoneThreshold) / (1 - deadzoneThreshold))
+		return InverseLerp(deadzoneThreshold, 1, abs(value)) * (value > 0 and 1 or -1)
 	end
 end
 
@@ -188,7 +188,7 @@ end
 
 
 function Gamepad:Init()
-	
+	InverseLerp = self.Shared.NumberUtil.InverseLerp
 end
 
 

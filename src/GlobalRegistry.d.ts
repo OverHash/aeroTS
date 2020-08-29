@@ -1,6 +1,5 @@
 import Date from 'Shared/Date';
 import Maid from 'Shared/Maid';
-import Event from 'Shared/Event';
 import Thread from 'Shared/Thread';
 import Base64 from 'Shared/Base64';
 import TableUtil from 'Shared/TableUtil';
@@ -24,7 +23,6 @@ declare global {
 		// e.g. module2: typeof module2;
 		Date: typeof Date;
 		Maid: typeof Maid;
-		Event: typeof Event;
 		Thread: typeof Thread;
 		Base64: typeof Base64;
 		TableUtil: typeof TableUtil;

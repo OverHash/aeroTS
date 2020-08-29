@@ -1,7 +1,7 @@
 # aeroTS
 A port of [AeroGameFramework](https://sleitnick.github.io/AeroGameFramework/) to [roblox-ts](https://roblox-ts.github.io/)
 
-This was updated as of release [1.6.1 - 7edb161](https://github.com/Sleitnick/AeroGameFramework/tree/1.6.1)
+This was updated as of release [1.7.1 - b3cb92b](https://github.com/Sleitnick/AeroGameFramework/releases/tag/v1.7.1)
 
 Features:
 - IntelliSense for modules/service/controllers
@@ -15,6 +15,7 @@ It is easiest to clone this repository and copy relevant files across from there
 ## Usage
 - AeroGameFramework comes with a lot of preinstalled files. These can be removed
 	- The `Promise` library under Shared *must* exist - or the AeroClient will not be able to load.
+	- The `Internal` folder under Shared *must* exist - or the AeroClient will not be able to load.
 - Create a file under your desired location, and add it to `src/GlobalRegistry.d.ts` in the defined format
 - For examples on how to do this, see [examples](https://github.com/OverHash/aeroTS/tree/master/examples)
 

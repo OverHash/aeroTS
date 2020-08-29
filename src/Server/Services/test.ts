@@ -1,11 +1,11 @@
 import Aero = require("internal/Aero/Aero");
 
 export = class test extends Aero.Service {
-	Start() {
+	protected static Start(): void {
 		print('Started from test.ts!');
 	}
 
-	Init() {
+	protected static Init(): void {
 		print('Initiated from test.ts!');
 	}
-}
+};

@@ -23,6 +23,9 @@
 					"AeroInternal": {
 						"$path": "out/internal/Aero"
 					}
+				},
+				"Internal": {
+					"$path": "out/internal/shared"
 				}
 			}
 		},

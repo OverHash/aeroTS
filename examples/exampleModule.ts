@@ -1,11 +1,11 @@
 import Aero from 'internal/Aero/Aero';
 
 export = class exampleModule extends Aero.SharedModule {
-	static Start(): void {
+	protected static Start(): void {
 		print('exampleModule.ts started!');
 	}
 
-	Init(): void {
+	protected static Init(): void {
 		print('Initiated from exampleModule.ts!');
 	}
 
