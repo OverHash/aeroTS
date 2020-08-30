@@ -1,9 +1,10 @@
+import Base64 from 'Shared/Base64';
 import Date from 'Shared/Date';
 import Maid from 'Shared/Maid';
-import Thread from 'Shared/Thread';
-import Base64 from 'Shared/Base64';
-import TableUtil from 'Shared/TableUtil';
 import NumberUtil from 'Shared/NumberUtil';
+import Signal from 'Shared/Signal';
+import TableUtil from 'Shared/TableUtil';
+import Thread from 'Shared/Thread';
 import VectorUtil from 'Shared/VectorUtil';
 
 // import modules here, e.g.
@@ -21,12 +22,13 @@ declare global {
 	interface shared {
 		// module: typeof moduleImport
 		// e.g. module2: typeof module2;
+		Base64: typeof Base64;
 		Date: typeof Date;
 		Maid: typeof Maid;
-		Thread: typeof Thread;
-		Base64: typeof Base64;
-		TableUtil: typeof TableUtil;
 		NumberUtil: typeof NumberUtil;
+		Signal: typeof Signal;
+		TableUtil: typeof TableUtil;
+		Thread: typeof Thread;
 		VectorUtil: typeof VectorUtil;
 	}
 
