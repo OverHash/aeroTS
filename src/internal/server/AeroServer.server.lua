@@ -181,6 +181,9 @@ local function LazyLoadSetup(tbl, folder)
 			if (child:IsA("ModuleScript")) then
 				local objSettings = Settings:Get(child)
 				local obj = require(child)
+				if (type(obj) == 'table' and not objSettings.Standalone and obj['default']) then
+					obj = obj.default
+				end
 				settingsPerTbl[obj] = objSettings
 				rawset(t, i, obj)
 				if (type(obj) == "table" and not objSettings.Standalone) then
@@ -212,6 +215,9 @@ local function LoadService(module, servicesTbl, parentFolder)
 	remoteFolder.Parent = parentFolder
 	
 	local service = require(module)
+	if (type(service) == 'table' and service['default']) then
+		service = service.default
+	end
 	servicesTbl[module.Name] = service
 	
 	if (type(service.Client) ~= "table") then

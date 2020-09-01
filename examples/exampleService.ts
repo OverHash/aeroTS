@@ -1,6 +1,6 @@
 import Aero from 'internal/Aero/Aero';
 
-export = class exampleService extends Aero.Service {
+export default class exampleService extends Aero.Service {
 	protected static Start(): void {
 		print('exampleService.ts started!');
 
@@ -11,4 +11,4 @@ export = class exampleService extends Aero.Service {
 	protected static Init(): void {
 		print('Initiated from exampleService.ts!');
 	}
-};
+}

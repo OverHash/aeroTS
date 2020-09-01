@@ -1,6 +1,6 @@
 import Aero from 'internal/Aero/Aero';
 
-export = class clientTest extends Aero.Controller {
+export default class clientTest extends Aero.Controller {
 	protected static Start(): void {
 		print("Started from test.ts!");
 	}
@@ -8,4 +8,4 @@ export = class clientTest extends Aero.Controller {
 	protected static Init(): void {
 		print("Initiated from test.ts!");
 	}
-};
+}

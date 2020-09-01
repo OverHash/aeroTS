@@ -1,6 +1,6 @@
 import Aero from 'internal/Aero/Aero';
 
-export = class exampleController extends Aero.Controller {
+export default class exampleController extends Aero.Controller {
 	protected static Start(): void {
 		print('exampleController.ts started!');
 	}
@@ -12,4 +12,4 @@ export = class exampleController extends Aero.Controller {
 	static foo(str: string): void {
 		print('Someone sent a message!\n' + str);
 	}
-};
+}

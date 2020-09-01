@@ -152,6 +152,9 @@ local function LazyLoadSetup(tbl, folder)
 			if (child:IsA("ModuleScript")) then
 				local objSettings = Settings:Get(child)
 				local obj = require(child)
+				if (type(obj) == 'table' and not objSettings.Standalone and obj['default']) then
+					obj = obj.default
+				end
 				settingsPerTbl[obj] = objSettings
 				rawset(t, i, obj)
 				if (type(obj) == "table" and not objSettings.Standalone) then
@@ -176,6 +179,9 @@ end
 local function LoadController(module, controllersTbl)
 	local controllerSettings = Settings:Get(module)
 	local controller = require(module)
+	if (type(controller) == 'table' and controller['default']) then
+		controller = controller.default
+	end
 	controllersTbl[module.Name] = controller
 	controller._events = {}
 	setmetatable(controller, mt)

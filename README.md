@@ -17,6 +17,7 @@ It is easiest to clone this repository and copy relevant files across from there
 	- The `Promise` library under Shared *must* exist - or the AeroClient will not be able to load.
 	- The `Internal` folder under Shared *must* exist - or the AeroClient will not be able to load.
 - Create a file under your desired location, and add it to `src/GlobalRegistry.d.ts` in the defined format
+- You will need to export a class which extends from an `Aero.x` class. This class has to be exported either as the only object exported, or through `export default`
 - For examples on how to do this, see [examples](https://github.com/OverHash/aeroTS/tree/master/examples)
 
 ## Recommendations
