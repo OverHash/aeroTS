@@ -1,4 +1,4 @@
-import Aero from 'internal/Aero/Aero';
+import Aero from "internal/Aero/Aero";
 
 export default class clientTest extends Aero.Controller {
 	protected static Start(): void {

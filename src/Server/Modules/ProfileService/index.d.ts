@@ -1,4 +1,4 @@
-import { ProfileStore } from './globals';
+import { ProfileStore } from "./globals";
 
 declare namespace ProfileService {
 	/**

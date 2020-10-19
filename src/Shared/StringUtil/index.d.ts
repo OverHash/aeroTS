@@ -1,17 +1,17 @@
 declare class StringBuilder {
 	/**
 	 * Appends a string onto the build at the end
-	 * 
+	 *
 	 * ```ts
 	 * const builder = StringUtil.StringBuilder();
-	 * 
+	 *
 	 * builder.Append("world");
 	 * tostring(builder) === "world";
 	 * ```
 	 * @param str The string to append
 	 * @returns None.
 	 */
-	Append(str: string): void;
+	Append(str: string): StringBuilder;
 
 	/**
 	 * Prepends a string onto the build at the start
@@ -26,7 +26,7 @@ declare class StringBuilder {
 	 * @param str The string to append
 	 * @returns None.
 	 */
-	Prepend(str: string): void;
+	Prepend(str: string): StringBuilder;
 
 	/**
 	 * Converts a StringBuilder into a string format
@@ -40,7 +40,7 @@ declare class StringBuilder {
 	 * ```
 	 * @returns The string built from the builder
 	 */
-	ToString(): string;
+	ToString(): StringBuilder;
 }
 
 declare namespace StringUtil {
@@ -70,10 +70,10 @@ declare namespace StringUtil {
 
 	/**
 	 * Checks if two strings are equal, but ignores their case.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.RemoveWhitespace("  hello World!\n") === "helloWorld!"
-	 * ```       
+	 * ```
 	 * @param str The first string to compare
 	 * @param compare The second string to compare
 	 * @returns if the strings are equal with all whitespace removed
@@ -82,7 +82,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Removes all whitespace from a string.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.RemoveWhitespace("  hello World!\n") === "helloWorld!"
 	 * ```
@@ -93,7 +93,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Replaces all whitespace with a single space. This does not trim the string.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.RemoveExcessWhitespace("This     is    a   \n  test") === "This is a test"
 	 * ```
@@ -104,7 +104,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Checks if a string ends with a certain string.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.EndsWith("Hello world", "rld") === true
 	 * ```
@@ -128,7 +128,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Checks if a string contains another string.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.Contains("Hello world", "lo wor") === true
 	 * ```
@@ -140,7 +140,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Returns a table of all the characters in the string.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.ToCharArray("Hello") // ["H","e","l","l","o"]
 	 * ```
@@ -151,7 +151,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Returns a table of all the bytes of each character in the string.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.ToByteArray("Hello") // [72,101,108,108,111]
 	 * ```
@@ -162,7 +162,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Transforms an array of bytes into a string.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.ByteArrayToString([97, 98, 99]) === "abc"
 	 * ```
@@ -173,7 +173,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Returns a string in camelCase.
-	 * 
+	 *
 	 * ```tst
 	 * StringUtil.ToCamelCase("Hello_world-abc") === "helloWorldAbc"
 	 * ```
@@ -184,7 +184,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Returns a string in PascalCase.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.ToPascalCase("Hello_world-abc") === "HelloWorldAbc"
 	 * ```
@@ -195,7 +195,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Returns a string in snake_case or SNAKE_CASE.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.ToPascalCase("Hello_world-abc") === "hello_world_abc"
 	 * StringUtil.ToPascalCase("Hello_world-abc", true) === "HELLO_WORLD_ABC"
@@ -208,7 +208,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Returns a string in kebab-case or KEBAB-CASE.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.ToKebabCase("Hello_world-abc") === "hello-world-abc"
 	 * StringUtil.ToKebabCase("Hello_world-abc", true) === "HELLO-WORLD-ABC"
@@ -221,7 +221,7 @@ declare namespace StringUtil {
 
 	/**
 	 * Escapes a string from pattern characters. In other words, it prefixes any special pattern characters with a %. For example, the dollar sign $ would become %$. See the example below.
-	 * 
+	 *
 	 * ```ts
 	 * StringUtil.Escape("Hello. World$ ^-^") === "Hello%. World%$ %^%-%^"
 	 * ```
@@ -232,16 +232,16 @@ declare namespace StringUtil {
 
 	/**
 	 * Creates a StringBuilder object that can be used to build a string. This is useful when a large string needs to be concatenated. Traditional concatenation of a string using ".." can be a performance issue, and thus StringBuilders can be used to store the pieces of the string in a table and then concatenate them all at once.
-	 * 
+	 *
 	 * ```ts
 	 * const builder = StringUtil.StringBuilder()
-	 * 
+	 *
 	 * builder.Append("world")
 	 * builder.Prepend("Hello ")
 	 * builder.ToString() === "Hello world"
 	 * tostring(builder)  === "Hello world"
 	 * ```
-	 * 
+	 *
 	 * @returns The StringBuilder
 	 */
 	export function StringBuilder(): StringBuilder;

@@ -4,12 +4,11 @@
 declare class Date {
 	/**
 	 * Converts a JSON object into a Date object.
-	 * 
+	 *
 	 * To save in JSON, you should use `Date.ToJSON`
 	 * @param jsonString The saved JSON string
 	 */
 	static fromJSON(jsonString: string): Date;
-
 
 	/**
 	 * The hour of the day.
@@ -61,7 +60,6 @@ declare class Date {
 	 */
 	IsDST: boolean;
 
-
 	/**
 	 * Date as of right now
 	 */
@@ -78,10 +76,9 @@ declare class Date {
 	 */
 	constructor(seconds: number, useUTC: boolean);
 
-	
 	/**
 	 * Converts the Date object to a JSON string to be saved.
-	 * 
+	 *
 	 * To reconstruct, use `Date.fromJSON`
 	 */
 	public ToJSON(): string;
@@ -114,7 +111,7 @@ declare class Date {
 
 	/**
 	 * Returns the ISO string representation of the date.
-	 * 
+	 *
 	 * @example
 	 * print(date.ToISOString()) // e.g. 2020-01-06T17:08:24.473
 	 */
@@ -122,7 +119,7 @@ declare class Date {
 
 	/**
 	 * Returns a string representing the shorthand date.
-	 * 
+	 *
 	 * @example
 	 * print(date.ToDateString()) // e.g. Mon Jan 6 2020
 	 */
@@ -130,7 +127,7 @@ declare class Date {
 
 	/**
 	 * Returns a string representing the time.
-	 * 
+	 *
 	 * @example
 	 * print(date.ToTimeString()) // e.g. 17:10:28
 	 */
@@ -138,14 +135,14 @@ declare class Date {
 
 	/**
 	 * Returns a string representing the time and date combined.
-	 * 
+	 *
 	 * @example
 	 * print(date:ToString()) // e.g. Mon Jan 6 2020 17:10:28
-	 * 
+	 *
 	 * Also works with tostring:
 	 * print(tostring(date))
 	 */
-	public ToString(): void;
+	public ToString(): string;
 }
 
 export = Date;

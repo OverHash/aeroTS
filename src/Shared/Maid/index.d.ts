@@ -22,7 +22,7 @@ declare class Maid {
 	/**
 	 * Stores a promise.
 	 * If the maid is cleaned up and the promise is not completed, the promise will be cancelled.
-	 * @param promise 
+	 * @param promise
 	 */
 	GivePromise<T>(promise: T): T;
 

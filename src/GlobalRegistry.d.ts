@@ -1,11 +1,11 @@
-import Base64 from 'Shared/Base64';
-import Date from 'Shared/Date';
-import Maid from 'Shared/Maid';
-import NumberUtil from 'Shared/NumberUtil';
-import Signal from 'Shared/Signal';
-import TableUtil from 'Shared/TableUtil';
-import Thread from 'Shared/Thread';
-import VectorUtil from 'Shared/VectorUtil';
+import Base64 from "Shared/Base64";
+import Date from "Shared/Date";
+import Maid from "Shared/Maid";
+import NumberUtil from "Shared/NumberUtil";
+import Signal from "Shared/Signal";
+import TableUtil from "Shared/TableUtil";
+import Thread from "Shared/Thread";
+import VectorUtil from "Shared/VectorUtil";
 
 // import modules here, e.g.
 

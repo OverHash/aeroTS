@@ -215,10 +215,7 @@ export interface ProfileStore<T> {
 	 * `"Cancel"` - `.LoadProfileAsync()` will immediately return nil
 	 * `"ForceLoad"` - ProfileService will indefinetly attempt to load the profile. If the profile is session-locked by a remote Roblox server, it will either be released for that remote server or "stolen" (Stealing is nescessary for remote servers that are not responding in time and for handling crashed server session-locks).
 	 */
-	LoadProfileAsync(
-		profileKey: string,
-		notReleasedHandler: "ForceLoad" | notReleasedHandlerFunc,
-	): Profile<T> | void;
+	LoadProfileAsync(profileKey: string, notReleasedHandler: "ForceLoad" | notReleasedHandlerFunc): Profile<T> | void;
 
 	/**
 	 * Used to create and manage `Active` global updates for a specified Profile. Can be called on any Roblox server of your game. Updates should reach the recipient in less than 30 seconds, regardless of whether it was called on the same server the Profile is session-locked to. See [Global Updates](https://madstudioroblox.github.io/ProfileService/api/#global-updates) for more information.
