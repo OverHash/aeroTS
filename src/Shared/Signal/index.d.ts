@@ -1,3 +1,6 @@
+/**
+ * A class for signals in game.
+ */
 declare class Signal<T extends Array<unknown>> {
 	constructor();
 
@@ -8,7 +11,7 @@ declare class Signal<T extends Array<unknown>> {
 	 * ```ts
 	 * signal.Fire("Hello world");
 	 * ```
-	 * @param args The arguments to fire
+	 * @param args The arguments to fire.
 	 */
 	Fire(...args: T): void;
 
@@ -31,7 +34,7 @@ declare class Signal<T extends Array<unknown>> {
 	 * 	print(`Event fired! Got message: ${message}`);
 	 * });
 	 * ```
-	 * @param handler The handler to call everytime the event is fired
+	 * @param handler The handler to call everytime the event is fired.
 	 */
 	Connect(handler: (...args: T) => void): RBXScriptConnection;
 
